@@ -73,10 +73,10 @@ namespace Labb3ViewsUpdated.Mvvm.ViewModel
         }
         //Skapa en metod för att läsa in fil från datorn. CSV file
 
-        public void ReadQuizFile(Model.Quiz Title)
+        public void ReadQuizFile(Quiz Title)
         {
             string docpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string FilePath = Path.Combine(docpath, "QuizFile.csv");
+            string FilePath = Path.Combine(docpath, "QuizFile");
 
             StreamReader streamReader = new StreamReader(FilePath);
             string FileLine = "";

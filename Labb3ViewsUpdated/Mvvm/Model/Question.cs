@@ -9,11 +9,11 @@ namespace Labb3ViewsUpdated.Mvvm.Model
    public class Question
     {
  
-        public string QuizQuestion { get; }
-        public int CorrectQuizAnswer { get; }
-        public string Option1 { get; }
-        public string Option2 { get; }
-        public string Option3 { get; }
+        public string QuizQuestion { get; set; }
+        public int CorrectQuizAnswer { get; set; }
+        public string Option1 { get; set; }
+        public string Option2 { get; set; }
+        public string Option3 { get; set; }
 
         public Question(string quizQuestion, int correctQuizAnswer, string option1, string option2, string option3)
         {

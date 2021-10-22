@@ -10,7 +10,7 @@ namespace Labb3ViewsUpdated.Mvvm.Model
     class Quiz
     {
         public List<Question> Question  { get; }
-        public string Title { get; }
+        public string Title { get; set; }
      
 
         //public Question GetRandomQuestion()
