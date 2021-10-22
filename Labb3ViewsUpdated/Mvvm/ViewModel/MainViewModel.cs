@@ -12,6 +12,8 @@ namespace Labb3ViewsUpdated.Mvvm.ViewModel
 
     class MainViewModel: ObservableObject
     {
+
+        
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand PlayViewCommand { get; set; }
         public RelayCommand EditViewCommand { get; set; }

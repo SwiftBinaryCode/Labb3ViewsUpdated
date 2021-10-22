@@ -8,20 +8,20 @@ namespace Labb3ViewsUpdated.Mvvm.Model
 {
    public class Question
     {
- 
-        public string QuizQuestion { get; set; }
-        public int CorrectQuizAnswer { get; set; }
-        public string Option1 { get; set; }
-        public string Option2 { get; set; }
-        public string Option3 { get; set; }
+
+        public string _quizQuestion { get; }
+        public int CorrectQuizAnswer { get; }
+        public string _option1 { get; }
+        public string _option2 { get; }
+        public string _option3 { get; }
 
         public Question(string quizQuestion, int correctQuizAnswer, string option1, string option2, string option3)
         {
-            QuizQuestion = quizQuestion;
+            _quizQuestion = quizQuestion;
             CorrectQuizAnswer = correctQuizAnswer;
-            Option1 = option1;
-            Option2 = option2;
-            Option3 = option3;
+            _option1 = option1;
+            _option2 = option2;
+            _option3 = option3;
         }
 
     }
