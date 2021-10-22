@@ -9,10 +9,7 @@ using System.Threading.Tasks;
 namespace Labb3ViewsUpdated.Mvvm.ViewModel
 {
     class PlayViewModel:ObservableObject
-    {
-        //skapa en metod som laddar in alla fråor 
-
-        
+    { 
         private string _quizQuestion;
         private int _playerPoint;
         private string _option1 = "";
@@ -20,9 +17,7 @@ namespace Labb3ViewsUpdated.Mvvm.ViewModel
         private string _option3 = "";
 
         private Model.Quiz _quiz;
-        public List<Question> questionsList;
-
-        public List<Question> Question => questionsList;
+        public List<Question> Question { get; }
 
         public string Title
         {
@@ -32,17 +27,28 @@ namespace Labb3ViewsUpdated.Mvvm.ViewModel
         public string Option1
         {
             get => _option1;
-            set => _option1 = value;
+            set {
+                _option1 = value;
+                OnPropertyChanged(nameof(Option1));
+            }
         }
         public string Option2
         {
             get => _option2;
-            set => _option2 = value;
+            set
+            {
+                _option2 = value;
+                OnPropertyChanged(nameof(Option2));
+            }
         }
         public string Option3
         {
             get => _option3;
-            set => _option3 = value;
+           set
+            {
+                _option3 = value;
+                OnPropertyChanged(nameof(Option3));
+            }
         }
         public int PlayerPoint
         {
@@ -64,6 +70,16 @@ namespace Labb3ViewsUpdated.Mvvm.ViewModel
                 OnPropertyChanged(nameof(QuizQuestion));
             }
         }
+
+        //Skapa en tom konstruktor
+
+        //Skapa en Icommand för varje fråga och en för att starta programmet
+        
+        //Skapa en metod som är async som kollar om svaret är korrekt och ge spelaren poäng
+
+        //Skapa en metod som visar frågorna 
+
+        //Skapa en metod som startar spelet och anropar showquestion metoden.
 
     }
 }
