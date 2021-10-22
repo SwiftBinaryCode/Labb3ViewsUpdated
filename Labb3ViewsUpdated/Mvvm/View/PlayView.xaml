@@ -41,10 +41,10 @@
                                 Foreground="White"
                                 Text="Question" />
                             <TextBlock  
-                                x:Name="Question" Margin="10,10,350,10" Background="White"/>
-                            <RadioButton x:Name="Answer1" Margin="10,30,300,0" Background="Black" Content=""/>
-                            <RadioButton x:Name="Answer2" Margin="10,30,300,0" Background="Black"/>
-                            <RadioButton x:Name="Answer3" Margin="10,30,300,0" Background="Black"/>
+                                x:Name="Question" Margin="10,10,350,10" Background="White" Text="Question"/>
+                            <RadioButton x:Name="Answer1" Margin="10,30,300,0" Background="Black" Content="options1"/>
+                            <RadioButton x:Name="Answer2" Margin="10,30,300,0" Background="Black" Content="option2"/>
+                            <RadioButton x:Name="Answer3" Margin="10,30,300,0" Background="Black" Content="option 3"/>
 
                             <StackPanel VerticalAlignment="Center">
                             <Button 
@@ -52,13 +52,14 @@
                                     HorizontalAlignment="Center"
                                     Background="Gray"
                                     Content="Next Question"
-                                    Margin="10,31,0,-2 "/>
+                                    Margin="10,31,0,-2"/>
                             <Button 
                                     x:Name="Load"
                                     Background="Gray"
                                     HorizontalAlignment="Left"
                                     Content="Load Questions"
-                                    Margin="10,-18,0,0"/>
+                                    Margin="10,-18,0,0"
+                                    />
                             </StackPanel>
 
                         </StackPanel>
