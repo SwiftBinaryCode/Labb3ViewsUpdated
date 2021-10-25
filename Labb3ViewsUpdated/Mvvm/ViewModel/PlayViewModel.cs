@@ -1,54 +1,67 @@
-﻿using Labb3ViewsUpdated.Core;
+﻿
 using Labb3ViewsUpdated.Mvvm.Model;
-using System;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Labb3ViewsUpdated.Mvvm.ViewModel
 {
-    class PlayViewModel:ObservableObject
-    { 
-        private string _quizQuestion;
+    public class PlayViewModel:ObservableObject
+    {
+        private string _statement;
         private int _playerPoint;
         private string _option1 = "";
         private string _option2 = "";
         private string _option3 = "";
 
-        private Model.Quiz _quiz;
-        public List<Question> Question { get; }
+        public int Count = 0;
 
+        //Lista för att slumpa frågorna
+
+
+        public List<Question> Question = new List<Question>();
+
+        public Model.Quiz _quiz;
+
+        private Question _currentQuestion;
+
+        public Question CurrentQuestion
+        {
+            get { return _currentQuestion; }
+            set { _currentQuestion = value; }
+        }
         public string Title
         {
             get => _quiz.Title;
             set => _quiz.Title = value;
         }
+     
+        public int AmountOfQuestions
+        {
+            get => _quiz.Question.Count;
+
+        }
+
+        public string Statement
+        {
+            get => CurrentQuestion.Statement;
+        }
+
+        //Något sätt att kolla vilken fråga som är vald
         public string Option1
         {
-            get => _option1;
-            set {
-                _option1 = value;
-                OnPropertyChanged(nameof(Option1));
-            }
+            get => CurrentQuestion.Answers[0];
+            
         }
         public string Option2
         {
-            get => _option2;
-            set
-            {
-                _option2 = value;
-                OnPropertyChanged(nameof(Option2));
-            }
+            get => CurrentQuestion.Answers[1];
         }
         public string Option3
         {
-            get => _option3;
-           set
-            {
-                _option3 = value;
-                OnPropertyChanged(nameof(Option3));
-            }
+            get => CurrentQuestion.Answers[2];
         }
         public int PlayerPoint
         {
@@ -56,30 +69,83 @@ namespace Labb3ViewsUpdated.Mvvm.ViewModel
 
             set
             {
-                _playerPoint = value;
-                OnPropertyChanged(nameof(PlayerPoint));
+                SetProperty(ref _playerPoint, value);
+                
             }
         }
 
-        public string QuizQuestion
+        public PlayViewModel(Model.Quiz quiz)
         {
-            get => _quizQuestion;
-            set
-            {
-                _quizQuestion = value;
-                OnPropertyChanged(nameof(QuizQuestion));
-            }
+           
         }
 
-        //Skapa en tom konstruktor
+        public void LoadQuestions()
+        {
+            
 
-        //Skapa en Icommand för varje fråga och en för att starta programmet
-        
+        }
+
+
+        private void Start()
+        {
+
+            Count = 1;
+            LoadQuestions(Count);
+
+        }
+
+
+
+        //Ett sätt att sätta current question
+
+      
+
+        //trycka på next anropa get random question
+       
+
         //Skapa en metod som är async som kollar om svaret är korrekt och ge spelaren poäng
+        private async Task PlayerAnswer(int choice)
+        {
+            Count++;
+            await Task.Delay(100);
+            if (choice == CurrentQuestion.CorrectAnswer)
+            {
+                PlayerPoint++;
+                
 
-        //Skapa en metod som visar frågorna 
+            }
+            if (Count == Count)
+            {
+               
+                MessageBox.Show("Congrats you have finsihed the quiz");
 
-        //Skapa en metod som startar spelet och anropar showquestion metoden.
+            }
+            else
+            {
+
+                Count++;
+                LoadQuestions(Count);
+
+            }
+
+        }
+
+        //Skapa en Icommand för varje fråga
+        public RelayCommand Option1Command { get; set; }
+        public RelayCommand Option2Command { get; set; }
+        public RelayCommand Option3Command { get; set; }
+
+        //Begin command ska starta spelet och randomisa spelet
+        public RelayCommand StartCommand { get; set; }
+
+
+        //Skapa en metod som intitiar en default quiz
+
+        public PlayViewModel()
+        {
+
+        }
+
 
     }
 }

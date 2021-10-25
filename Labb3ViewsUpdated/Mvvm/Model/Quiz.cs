@@ -7,29 +7,32 @@ using System.Threading.Tasks;
 
 namespace Labb3ViewsUpdated.Mvvm.Model
 {
-    class Quiz
+    public class Quiz
     {
-        public List<Question> Question  { get; set; }
+        public List<Question> Question { get; }
         public string Title { get; set;}
-     
 
-        //public Question GetRandomQuestion()
-        //{
+        public List<Question> Questions = new();
 
-
-
-        //}
-        //public void AddQuestion(string statement, params string[] answers, int correctAnser)
-        //{
+        public Question GetRandomQuestion()
+        {
 
 
 
-        //}
-        //public void RemoveQuestion(int index)
-        //{
+        }
+        public void AddQuestion(string statement,int correctAnswer, params string[] answers)
+        {
+
+
+       
+
+            
+        }
+        public void RemoveQuestion(int index)
+        {
 
 
 
-        //}
+        }
     }
 }
