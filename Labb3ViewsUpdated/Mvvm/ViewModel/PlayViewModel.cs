@@ -1,15 +1,16 @@
 ﻿
 using Labb3ViewsUpdated.Mvvm.Model;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Labb3ViewsUpdated.Mvvm.ViewModel
 {
-    public class PlayViewModel:ObservableObject
+    class PlayViewModel
     {
+        
+
         private string _statement;
         private int _playerPoint;
         private string _option1 = "";

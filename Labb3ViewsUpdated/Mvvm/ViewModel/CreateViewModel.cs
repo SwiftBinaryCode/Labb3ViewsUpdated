@@ -1,6 +1,6 @@
 ﻿
 using Labb3ViewsUpdated.Mvvm.Model;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Labb3ViewsUpdated.Mvvm.ViewModel
 {
-    class CreateViewModel:ObservableObject
+   public class CreateViewModel
     {
         private string _quizQuestion;
         private int _playerPoint;

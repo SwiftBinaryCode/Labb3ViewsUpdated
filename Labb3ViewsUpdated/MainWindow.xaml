@@ -5,7 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Labb3ViewsUpdated"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModel="clr-namespace:Labb3ViewsUpdated.Mvvm.ViewModel"
+    xmlns:viewModel="clr-namespace:Labb3ViewsUpdated.Mvvm.ViewModel" 
+    xmlns:views="clr-namespace:Labb3ViewsUpdated.Mvvm.View"
     Width="800"
     Height="450"
     AllowsTransparency="True"
@@ -14,20 +15,20 @@
     WindowStyle="None"
     mc:Ignorable="d">
 
-    <ContentControl Content="{Binding CurrentViewModel}"/>
-
-
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
     <Border Background="#272537" CornerRadius="20">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height=" 75" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <TextBlock
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=" 75" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock
                 Margin="20,0,0,0"
                 HorizontalAlignment="left"
                 VerticalAlignment="Center"
@@ -35,40 +36,40 @@
                 Foreground="White"
                 Text="Quiz Game" />
 
-            <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="1">
 
-                <RadioButton
+            <RadioButton
                     Height="50"
                     Content="Main Menu"
                     FontSize="14"
                     Foreground="White"
                     Style="{StaticResource MenuButtonTheme}"
                     IsChecked="True"
-                    Command="{Binding HomeViewCommand}"/>
-                <RadioButton
+                    Command="{Binding CurrentView"/>
+            <RadioButton
                     Height="50"
                     Content="Play"
                     FontSize="14"
                     Foreground="White"
                     Style="{StaticResource MenuButtonTheme}"
-                    Command="{Binding PlayViewCommand}"/>
-                <RadioButton
+                   Command="{Binding CurrentView}"/>
+            <RadioButton
                     Height="50"
                     Content="Edit"
                     FontSize="14"
                     Foreground="White"
                     Style="{StaticResource MenuButtonTheme}"
-                    Command="{Binding EditViewCommand}"/>
-                <RadioButton
+                    Command="{Binding CurrentView}"/>
+            <RadioButton
                     Height="50"
                     Content="Create"
                     FontSize="14"
                     Foreground="White"
                     Style="{StaticResource MenuButtonTheme}"
-                    Command="{Binding CreateViewCommand}"/>
+                    Command="{Binding CurrentView}"/>
 
-            </StackPanel>
-            <TextBox
+        </StackPanel>
+        <TextBox
                 Grid.Column="1"
                 Width="250"
                 Height="40"
@@ -77,12 +78,12 @@
                 VerticalAlignment="Center"
                 Style="{StaticResource ModernTextBox}"/>
 
-            <ContentControl Grid.Row="1"
+        <ContentControl Grid.Row="1"
                             Grid.Column="1"
                             Margin="10"
                             Content="{Binding CurrentView}"/>
-        </Grid>
-
-
+    </Grid>
+    
     </Border>
+
 </Window>

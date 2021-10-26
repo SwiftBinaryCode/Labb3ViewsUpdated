@@ -9,7 +9,7 @@ namespace Labb3ViewsUpdated.Mvvm.Model
     public class QuizManager
     {
         //skapa en lista som lagrar alla skapade quizes
-        private List<Quiz> quizzes = new List<Quiz>();
+        private List<Quiz> _quizzes = new List<Quiz>();
 
         //kunstruktor av quiz
         public List<Quiz> Quizzes

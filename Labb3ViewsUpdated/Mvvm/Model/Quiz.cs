@@ -12,14 +12,14 @@ namespace Labb3ViewsUpdated.Mvvm.Model
         public List<Question> Question { get; }
         public string Title { get; set;}
 
-        public List<Question> Questions = new();
+        //public List<Question> Questions = new();
 
-        public Question GetRandomQuestion()
-        {
+        //public Question GetRandomQuestion()
+        //{
 
 
 
-        }
+        //}
         public void AddQuestion(string statement,int correctAnswer, params string[] answers)
         {
 
